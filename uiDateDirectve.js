@@ -29,11 +29,11 @@ app.directive("uiDate", function ($filter) {
 
             ctrl.$parsers.push(function (value) {
                 if (value.length === 16) {
-                    console.log(value);
-                    var datahora = value.split(' ');
-                    var dateArray = datahora[0].split("/");
-                    var horaArray = datahora[1].split(":");
-                    return new Date(dateArray[2], dateArray[1] - 1, dateArray[0], horaArray[1]).getTime();
+//                    var datahora = value.split(' ');
+//                    var dateArray = datahora[0].split("/");
+//                    var horaArray = datahora[1].split(":");
+//                    return new Date(dateArray[2], dateArray[1] - 1, dateArray[0], horaArray[1]).getTime();
+                    return value;
                 }
             });
 
