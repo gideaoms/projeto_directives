@@ -22,11 +22,13 @@ app.directive("uiDate", function ($filter) {
                 return date;
             };
 
+            /* ocorre quando há uma interação com o usuario (teclado) */
             element.bind("keyup", function (e) {
                 ctrl.$setViewValue(_formatDate(ctrl.$viewValue, e.keyCode));
                 ctrl.$render();
             });
 
+            /* quando eu coloco um return o valor é jogado para o model, entao eu posso dar um return somente quando uma validacao é satisfatoria */
             ctrl.$parsers.push(function (value) {
                 if (value.length === 16) {
 //                    var datahora = value.split(' ');
@@ -37,6 +39,7 @@ app.directive("uiDate", function ($filter) {
                 }
             });
 
+            /* formata o valor antes de colocar na tela */
             ctrl.$formatters.push(function (value) {
                 return $filter("date")(value, "dd/MM/yyyy H:i");
             });
